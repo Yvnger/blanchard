@@ -1,0 +1,41 @@
+<section id="gallery" class="gallery section section--dark">
+    <div class="container">
+        <div class="gallery__wrap">
+            <aside class="gallery__side">
+                <h2 class="section__title">Галерея</h2>
+
+                <div class="gallery__filter-wrap">
+                    <div class="gallery__filter">
+                        <span class="gallery__filter-label">Фильтр:</span>
+
+                        <select name="category" id="category" class="gallery__filter-select"></select>
+                    </div>
+
+                    <div class="gallery__filter">
+                        {{> elements/GalleryFilterCheckbox name="era" id="xix" title="XIX век" }}
+                        {{> elements/GalleryFilterCheckbox name="era" id="xx" title="XX век" }}
+                        {{> elements/GalleryFilterCheckbox name="era" id="new" title="Современность" }}
+                    </div>
+                </div>
+            </aside>
+            <div class="gallery__content">
+                <div class="gallery__slider">
+                    <div class="gallery__slider-controls">
+                        <button class="gallery__slider-button gallery__slider-button--prev"></button>
+                        <span class="gallery__slider-fraction"></span>
+                        <button class="gallery__slider-button gallery__slider-button--next"></button>
+                    </div>
+
+                    <div class="swiper-wrapper">
+                        {{> elements/GallerySlideItem number="1" }}
+                        {{> elements/GallerySlideItem number="2" }}
+                        {{> elements/GallerySlideItem number="3" }}
+                        {{> elements/GallerySlideItem number="4" }}
+                        {{> elements/GallerySlideItem number="5" }}
+                        {{> elements/GallerySlideItem number="6" }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
