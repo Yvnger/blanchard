@@ -1,27 +1,67 @@
 .button {
   display: block;
-  padding: 20px 38px;
-  border-radius: 16px;
+  padding: 17px 35px;
+  border-radius: 100px;
+  outline-offset: -3px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: auto;
   white-space: nowrap;
-  transition-property: background-color, color, opacity;
+  transition-property: background-color, color, opacity, outline-color, outline-width, outline-offset;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-function);
-
-  @media (max-width: $mobile) {
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 12px;
-  }
-
-  &:focus {
-    outline: none;
-  }
 
   &:disabled {
     opacity: .4;
     pointer-events: none;
     user-select: none;
+  }
+
+  &--fill {
+    outline: 3px solid transparent;
+    background-color: #9d5cd0;
+    color: #fff;
+
+    &:focus-visible {
+      outline-offset: 3px;
+      outline-width: 2px;
+      outline-color: #c283f3;
+    }
+
+    &:hover {
+      background-color: #9d5cd0;
+      outline-color: #d1a9f0;
+    }
+
+    &:active {
+      background-color: #7943a4;
+      outline-offset: -3px;
+      outline-width: 3px;
+      outline-color: #d1a9f0;
+    }
+  }
+
+  &__chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+    background-color: #ececec;
+    transition-property: background-color, transform, outline;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-function);
+
+    &--big {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+
+      &::after {
+        content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05IDguMjkzbDcuOTgtNy45OC43MDcuNzA3TDkgOS43MDcuMzEzIDEuMDIgMS4wMi4zMTMgOSA4LjI5M3oiIGZpbGw9IiMwMDAiLz48L3N2Zz4=');
+        line-height: 12px;
+      }
+    }
   }
 }
