@@ -13,6 +13,7 @@
 @import "components/artist";
 @import "components/category";
 @import "components/accordeon";
+@import "components/event";
 
 // Import layout styles
 @import "layout/grid";
@@ -22,6 +23,7 @@
 @import "layout/about";
 @import "layout/gallery";
 @import "layout/catalog";
+@import "layout/events";
 
 // Import page-specific styles
 @import "pages/home";

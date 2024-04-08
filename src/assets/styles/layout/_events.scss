@@ -1,0 +1,41 @@
+.events {
+    &__wrap {
+        position: relative;
+    }
+
+    &__slider {
+        &-wrap {
+            overflow: hidden;
+        }
+
+        &-controls {
+            position: absolute;
+            top: calc(50% - 25px);
+            right: -25px;
+            left: -25px;
+            z-index: 30;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &-button {
+            transition: opacity var(--transition-duration) var(--transition-function);
+            &:disabled {
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            &--next {
+                &:after {
+                    transform: rotate(-90deg);
+                }
+            }
+
+            &--prev {
+                &:after {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+}

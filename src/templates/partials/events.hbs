@@ -1,0 +1,59 @@
+<section class="events section">
+    <div class="container">
+        <h2 class="section__title">События</h2>
+
+        <div class="events__wrap">
+            <div class="events__slider-controls">
+                <button
+                    class="button__chevron button__chevron--big events__slider-button events__slider-button--prev"></button>
+                <button
+                    class="button__chevron button__chevron--big events__slider-button events__slider-button--next"></button>
+            </div>
+            <div class="events__slider-wrap">
+                <div class="events__slider">
+                    <div class="swiper-wrapper">
+                        {{> elements/EventSlide
+                        id="1"
+                        title="Книжная гравюра в живом восприятии"
+                        excerpt="Один из ведущих флорентийских художников Кватроченто, основатель художественной
+                        династии, которую продолжили его брат Давид и сын Ридольфо."
+                        place="Музей им. Щусева"
+                        date="с 20 марта по 30 апреля"
+                        }}
+                        {{> elements/EventSlide
+                        id="2"
+                        title="«Открытая дискуссия». Дмитрий Петров и Сергей Ильин."
+                        excerpt="Высокий уровень вовлечения представителей целевой аудитории является четким
+                        доказательством простого факта."
+                        place="ММОМА"
+                        date="24 марта 19:00"
+                        }}
+                        {{> elements/EventSlide
+                        id="3"
+                        title="Выставка «Формация 2020»"
+                        excerpt="Идейные соображения высшего порядка, а также современная методология разработки играет
+                        важную роль в формировании глубокомысленных рассуждений."
+                        place="Еврейский музей"
+                        date="с 31 марта по 21 апреля"
+                        }}
+                        {{> elements/EventSlide
+                        id="4"
+                        title="Джон Винзор. Фотографии из серии «Метафора серебра»"
+                        excerpt="Один из ведущих флорентийских художников Кватроченто, основатель художественной
+                        династии, которую продолжили его брат Давид и сын Ридольфо."
+                        place="ММАМ"
+                        date="с 8 апреля по 20 мая"
+                        }}
+                        {{> elements/EventSlide
+                        id="5"
+                        title="XXIV Международная биеннале молодого искусства"
+                        excerpt="Внезапно, реплицированные с зарубежных источников, современные исследования."
+                        place="Третьяковка на Крымском валу"
+                        date="с 30 марта по 30 апреля"
+                        }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
