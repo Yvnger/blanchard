@@ -1,0 +1,58 @@
+.section {
+    margin-bottom: 80px;
+
+    @media (max-width: $mobile) {
+        padding: 50px 0;
+    }
+
+    &__text {
+        max-width: 1080px;
+
+        @media (max-width: $laptop) {
+            max-width: 100%;
+        }
+    }
+
+    &__title {
+        margin: 0;
+        margin-bottom: 16px;
+        font-weight: 400;
+        font-size: 48px;
+        line-height: auto;
+
+        @media (max-width: $mobile) {
+            margin-bottom: 12px;
+            font-size: 28px;
+        }
+    }
+
+    &__paragraph {
+        margin: 0;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 32px;
+
+        @media (max-width: $mobile) {
+            font-size: 14px;
+            line-height: 28px;
+        }
+    }
+
+    &--light {
+        background-color: #fff;
+    }
+
+    &--light &__title,
+    &--light &__paragraph {
+        color: #333;
+    }
+
+    &--dark {
+        background-color: #333;
+    }
+
+    &--dark &__title,
+    &--dark &__paragraph {
+        color: #fff;
+    }
+}
