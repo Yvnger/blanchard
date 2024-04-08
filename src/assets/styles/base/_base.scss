@@ -16,7 +16,12 @@ a {
   transition-timing-function: var(--transition-function);
 
   &:focus {
-    outline: none;
+    outline: 0px solid transparent;
+  }
+
+  &:active {
+    outline: 0px solid transparent;
+    text-decoration: none;
   }
 }
 
