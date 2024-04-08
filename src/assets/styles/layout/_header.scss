@@ -1,0 +1,141 @@
+.header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+    background-color: black;
+
+    .container {
+        display: flex;
+        align-items: center;
+        padding-top: 28px;
+        padding-bottom: 27px;
+
+        @media screen and (max-width: $desktop) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding-top: 29px;
+            padding-bottom: 28px;
+        }
+
+        @media screen and (max-width: $mobile) {
+            padding-top: 12px;
+            padding-bottom: 11px;
+            gap: 0;
+        }
+    }
+
+    &__logo {
+        max-width: 173px;
+        max-height: 40px;
+        width: 100%;
+
+        &-wrap {
+            flex-shrink: 0;
+            margin-right: 179px;
+        }
+
+        @media screen and (max-width: $desktop) {
+            max-width: 187.6px;
+            max-height: 43px;
+
+            &-wrap {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+
+                order: 2;
+                margin-right: 0;
+            }
+        }
+
+        @media screen and (max-width: $mobile) {
+            max-width: 97px;
+            max-height: 22px;
+        }
+    }
+
+    &__nav {
+        width: 100%;
+
+        &-hamburger {
+            display: none;
+
+            @media screen and (max-width: $desktop) {
+                display: block;
+            }
+        }
+
+        &-icon {
+            display: block;
+            width: 36px;
+            height: 28px;
+
+            @media screen and (max-width: $mobile) {
+                width: 25px;
+                height: 18px;
+            }
+        }
+    }
+
+    &__login {
+        &-link {
+            padding: 6px 6px 8px;
+            font-weight: 400;
+            font-size: 18px;
+            text-decoration: none;
+            color: #fff;
+            transition-property: background-color, color;
+            transition-duration: var(--transition-duration);
+            transition-timing-function: var(--transition-function);
+
+            &:focus-visible {
+                background-color: #7943a4;
+            }
+
+            &:hover {
+                color: #c283f3;
+            }
+
+            &:active {
+                color: #9d5cd0;
+            }
+
+            @media screen and (max-width: $desktop) {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 11px 30px 11px 25px;
+                border: 2px solid #9d5cd0;
+                border-radius: 100px;
+                font-weight: 600;
+                font-size: 12px;
+            }
+        }
+
+        &-icon {
+            @media screen and (max-width: $desktop) {
+                margin-right: 4px;
+                max-height: 9px;
+            }
+
+            path {
+                fill: currentColor;
+                transition: d 0.3s ease-in-out;
+            }
+        }
+    }
+
+    &__search {
+        display: none;
+        justify-content: flex-end;
+        order: 3;
+
+        @media screen and (max-width: $desktop) {
+            display: flex;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+.search {
+    &__wrap {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    &__button {
+        display: block;
+        margin-right: 10px;
+        width: 29px;
+        height: 29px;
+
+        @media screen and (max-width: $laptop) {
+            // width: 27px;
+            // height: 27px;
+        }
+
+        @media screen and (max-width: $mobile) {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    &__icon {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        mask: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMzAgMjkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik01LjMyOCAxMy41MWMwIDUuNzYzIDQuNzEgMTAuNjY0IDEwLjc5NyAxMC42NjQgNi4wODcgMCAxMC43OTctNC45MDEgMTAuNzk3LTEwLjY2MyAwLTUuNzYzLTQuNzEtMTAuNjY0LTEwLjc5Ny0xMC42NjQtNi4wODcgMC0xMC43OTcgNC45MDEtMTAuNzk3IDEwLjY2NHptMS45OSAxMC4wMDZhMTMuMjc5IDEzLjI3OSAwIDAwOC44MDcgMy4zMjRjNy4zNjEgMCAxMy4zMy01Ljk2OCAxMy4zMy0xMy4zMyAwLTcuMzYxLTUuOTY5LTEzLjMzLTEzLjMzLTEzLjMzLTcuMzYyIDAtMTMuMzMgNS45NjktMTMuMzMgMTMuMzMgMCAzLjE2MyAxLjEwMSA2LjA2OCAyLjk0MSA4LjM1M0wwIDI3LjQxIDEuNjQ1IDI5bDUuNjcyLTUuNDg0eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');
+        mask-repeat: no-repeat;
+    }
+
+    &__input {
+        display: none;
+        @include resetInput;
+        margin-right: 24px;
+        border-bottom: 1px solid rgba(255, 255, 255, .85);
+        color: white;
+        
+        &::placeholder {
+            color: white;
+        }
+    }
+
+    &__close {
+        display: block;
+        width: 23px;
+        height: 23px;
+        background-color: #fff;
+        mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgY2xpcC1wYXRoPSJ1cmwoI3ByZWZpeF9fY2xpcDBfMTM2MzIwXzQ0MTcpIiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMS4zNjUuMDAyTDE1IDEzLjYzNiAxMy42MzYgMTUgLjAwMiAxLjM2NXoiLz48cGF0aCBkPSJNMCAxMy42MzZMMTMuNjM0LjAwMmwxLjM2MyAxLjM2M0wxLjM2MyAxNXoiLz48L2c+PGRlZnM+PGNsaXBQYXRoIGlkPSJwcmVmaXhfX2NsaXAwXzEzNjMyMF80NDE3Ij48cGF0aCBmaWxsPSIjZmZmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIC4wMDIpIiBkPSJNMCAwaDE1djE0Ljk5OEgweiIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvc3ZnPg==');
+        mask-size: cover;
+        mask-repeat: no-repeat;
+    }
+}
