@@ -1,0 +1,29 @@
+.artist {
+    &__photo {
+        display: block;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    &__name {
+        margin: 0;
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 24px;
+        color: #333;
+    }
+
+    &__lifetime {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 12px;
+        color: #999;
+    }
+
+    &__bio {
+        margin: 0;
+        font-size: 16px;
+        line-height: 32px;
+        color: #333;
+    }
+}

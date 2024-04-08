@@ -1,0 +1,17 @@
+.catalog {
+    &__text {
+        margin-bottom: 39px;
+    }
+
+    &__wrap {
+        display: grid;
+        grid-template-columns: max(750px) 1fr;
+        gap: 50px;
+    }
+
+    &__categories {
+        display: flex;
+        flex-direction: column;
+        padding-top: 1px;
+    }
+}

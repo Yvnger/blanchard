@@ -1,0 +1,258 @@
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    &__heading {
+        position: relative;
+        top: -1px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 33px 0 33px;
+        margin: 0;
+        width: 100%;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32px;
+        text-decoration: none;
+        color: #333;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: #cacaca;
+            transition-property: border-color;
+            transition-duration: var(--transition-duration);
+            transition-timing-function: var(--transition-function);
+        }
+
+        &::before {
+            top: -1px;
+        }
+
+        &::after {
+            bottom: 0;
+        }
+
+        &:focus-visible {
+            outline: none;
+
+            &::after {
+                background-color: #d1a9f0;
+            }
+        }
+
+        &:hover {
+            z-index: 10;
+            border-color: currentColor;
+            color: #9d5cd0;
+
+            &::before,
+            &::after {
+                background-color: currentColor;
+            }
+        }
+
+        &:active {
+
+            &::before,
+            &::after {
+                background-color: #7943a4;
+            }
+        }
+    }
+
+    &__title {
+        color: currentColor;
+        transition-property: background-color, color;
+        transition-duration: var(--transition-duration);
+        transition-timing-function: var(--transition-function);
+    }
+
+    &__chevron {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: 2px solid transparent;
+        outline-offset: -2px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #ececec;
+        transition-property: background-color, transform, outline;
+        transition-duration: var(--transition-duration);
+        transition-timing-function: var(--transition-function);
+
+        &::after {
+            content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05IDguMjkzbDcuOTgtNy45OC43MDcuNzA3TDkgOS43MDcuMzEzIDEuMDIgMS4wMi4zMTMgOSA4LjI5M3oiIGZpbGw9IiMwMDAiLz48L3N2Zz4=');
+            line-height: 12px;
+        }
+    }
+
+    &__heading:focus-visible>&__title {
+        background-color: #9d5cd0;
+        color: #fff;
+    }
+
+    &__heading:focus-visible>&__chevron {
+        background-color: #d1a9f0;
+    }
+
+    &__heading:hover>&__title {
+        color: #9d5cd0;
+    }
+
+    &__heading:hover>&__chevron {
+        background-color: #d1a9f0;
+    }
+
+    &:first-child>&__heading::before {
+        top: 0;
+    }
+
+    &__heading:focus-visible>&__title {
+        background-color: #9d5cd0;
+        color: #fff;
+    }
+
+    &__heading:active>&__title {
+        color: #7943a4;
+    }
+
+    &__heading:active>&__chevron {
+        outline-color: #9d5cd0;
+    }
+
+    &__body {
+        display: none;
+        width: 100%;
+        padding: 25px 0;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(9, 1fr);
+        grid-auto-rows: auto;
+        grid-auto-flow: column;
+        gap: 0 16px;
+    }
+
+    &__link {
+        background-color: transparent;
+        border-bottom: 1px solid transparent;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 32px;
+        text-decoration: none;
+        color: #333;
+        transition: background-color var(--transition-duration) var(--transition-function);
+
+        &:focus-visible {
+            background-color: #9d5cd0;
+            color: #fff;
+        }
+
+        &:hover {
+            border-color: #9d5cd0;
+            color: #9d5cd0;
+        }
+
+        &:active {
+            color: #7943a4;
+        }
+    }
+
+    &--opened>&__heading {
+        color: #7943a4;
+
+        &::before,
+        &::after {
+            z-index: 10;
+            background-color: #7943a4;
+        }
+    }
+
+    &--opened>&__heading>&__chevron {
+        outline-color: #9d5cd0;
+        background-color: #d1a9f0;
+        transform: rotate(180deg);
+    }
+
+    &--opened>&__body {
+        display: block;
+    }
+
+    // Empty box
+    &__empty {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        &-pic {
+            position: relative;
+            display: block;
+            max-width: 275px;
+            min-height: 189px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #b7b7b7;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 12px;
+                right: 12px;
+                bottom: 12px;
+                left: 12px;
+                background-color: #b7b7b7;
+            }
+        }
+
+        &-text {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            max-width: 275px;
+        }
+
+        &-heading {
+            margin: 0;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 32px;
+            color: #333;
+        }
+
+        &-description {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: auto;
+            color: #333;
+        }
+
+        &-link {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: auto;
+            text-decoration: none;
+            color: #9d5cd0;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &:active {
+                color: #7943a4;
+            }
+        }
+    }
+}

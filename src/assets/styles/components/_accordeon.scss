@@ -1,0 +1,11 @@
+.accordeon {
+    &__tab {
+        &--opened {
+            
+        }
+    }
+
+    &__body {
+        display: none;
+    }
+}
