@@ -1,0 +1,85 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0);
+    transition-property: background-color, opacity;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-function);
+
+    @media screen and (max-width: $desktop) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 16px 15px;
+        background-color: rgba(0, 0, 0, .9);
+        opacity: 0;
+        pointer-events: none;
+
+        &--opened {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    &__close {
+        display: none;
+        margin-bottom: 16px;
+        width: 15px;
+        height: 15px; 
+        background-color: #fff;
+        mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgY2xpcC1wYXRoPSJ1cmwoI3ByZWZpeF9fY2xpcDBfMTM2MzIwXzQ0MTcpIiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMS4zNjUuMDAyTDE1IDEzLjYzNiAxMy42MzYgMTUgLjAwMiAxLjM2NXoiLz48cGF0aCBkPSJNMCAxMy42MzZMMTMuNjM0LjAwMmwxLjM2MyAxLjM2M0wxLjM2MyAxNXoiLz48L2c+PGRlZnM+PGNsaXBQYXRoIGlkPSJwcmVmaXhfX2NsaXAwXzEzNjMyMF80NDE3Ij48cGF0aCBmaWxsPSIjZmZmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIC4wMDIpIiBkPSJNMCAwaDE1djE0Ljk5OEgweiIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvc3ZnPg==');
+
+        @media screen and (max-width: $desktop) {
+            display: block;
+        }
+    }
+
+    &__items {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+
+        @media screen and (max-width: $desktop) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+            margin-bottom: auto;
+        }
+    }
+
+    &__link {
+        padding: 6px 6px 8px;
+        background-color: transparent;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 18px;
+        text-decoration: none;
+        color: #fff;
+        transition-property: outline-color, background-color, color;
+        transition-duration: var(--transition-duration);
+        transition-timing-function: var(--transition-function);
+
+        &:focus-visible {
+            background-color: #7943a4;
+        }
+
+        &:hover {
+            color: #c283f3;
+        }
+
+        &:active {
+            color: #7943a4;
+        }
+
+        @media screen and (max-width: $desktop) {
+            padding: 0;
+            font-size: 16px;
+            line-height: 32px;
+        }
+    }
+}
