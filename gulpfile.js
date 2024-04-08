@@ -5,13 +5,13 @@ const isProd = process.env.NODE_ENV === "production";
 import gulp from "gulp";
 // Utils
 import cache from "gulp-cache";
-import {deleteAsync, deleteSync} from "del";
+import { deleteAsync, deleteSync } from "del";
 import rename from "gulp-rename";
 import sourcemaps from "gulp-sourcemaps";
 import connect from "gulp-connect";
 import gulpif from "gulp-if";
 // Images
-import imagemin, {mozjpeg, optipng, svgo} from "gulp-imagemin";
+import imagemin, { mozjpeg, optipng, svgo } from "gulp-imagemin";
 import webp from "gulp-webp";
 import favicons from "gulp-favicons";
 import svgstore from "gulp-svgstore";
@@ -67,7 +67,7 @@ gulp.task("connect", () => {
   connect.server({
     root: DEST,
     livereload: true,
-    host: "0.0.0.0"
+    host: "127.0.0.1"
   });
 });
 
@@ -108,7 +108,7 @@ gulp.task("images", () => {
     )
     .pipe(gulp.dest(`${DEST}/assets/images`))
     .pipe(gulp.src("src/assets/images/**/*.{png,jpg,jpeg}"))
-    .pipe(webp({quality: 10}))
+    .pipe(webp({ quality: 90 }))
     .pipe(gulp.dest(`${DEST}/assets/images`))
     .pipe(connect.reload());
 });
@@ -130,11 +130,11 @@ gulp.task("sprites", () => {
     .src("src/assets/images/svg/**/*.svg")
     .pipe(imagemin([svgo({
       plugins: [
-        {name: "removeViewBox", active: true},
-        {name: "cleanupIDs", active: true}
+        { name: "removeViewBox", active: true },
+        { name: "cleanupIDs", active: true }
       ]
     })]))
-    .pipe(svgstore({inlineSvg: true}))
+    .pipe(svgstore({ inlineSvg: true }))
     .pipe(rename("sprites.svg"))
     .pipe(gulp.dest(`${DEST}/assets/images`));
 });
@@ -142,7 +142,7 @@ gulp.task("sprites", () => {
 // Favicon: generate
 gulp.task("favicon-generate", (done) => {
   return gulp
-    .src("src/images/favicon.png", {allowEmpty: true})
+    .src("src/favicon.png", { allowEmpty: true })
     .pipe(
       favicons({
         appName: "App name", // Название вашего приложения
@@ -174,7 +174,7 @@ gulp.task("favicon-ico-to-root", async () => {
   // Копирование favicon.ico в корневую директорию
   await new Promise((resolve, reject) => {
     gulp
-      .src(source, {allowEmpty: true})
+      .src(source, { allowEmpty: true })
       .pipe(gulp.dest(DEST))
       .pipe(connect.reload())
       .on("end", resolve)
@@ -205,7 +205,7 @@ gulp.task("html", () => {
         }),
       )
       // .pipe(htmlReplace())
-      .pipe(typograf({locale: ["ru", "en-US"]}))
+      .pipe(typograf({ locale: ["ru", "en-US"] }))
       // .pipe(htmlMin({ collapseWhitespace: true }))
       .pipe(gulp.dest(DEST))
       .pipe(connect.reload())
@@ -237,18 +237,26 @@ gulp.task("styles", () => {
     .pipe(connect.reload());
 });
 
+// Vendors
+gulp.task("vendor", () => {
+  return gulp
+    .src("src/vendor/**/*")
+    .pipe(gulp.dest(`${DEST}/`))
+})
+
+
 // Scripts
 gulp.task("scripts", () => {
-  return browserify("src/assets/scripts/main.js", {debug: true})
-    .transform(babelify, {presets: ["@babel/env"]})
+  return browserify("src/assets/scripts/main.js", { debug: true })
+    .transform(babelify, { presets: ["@babel/env"] })
     .bundle()
     .pipe(source("bundle.min.js"))
     .pipe(buffer())
-    .pipe(gulpif(isDev, sourcemaps.init({loadMaps: true})))
+    .pipe(gulpif(isDev, sourcemaps.init({ loadMaps: true })))
     .pipe(gulpif(isProd, terser()))
     // .pipe(gulpif(isProd, uglify()))
     .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest(`${DEST}/assets`))
+    .pipe(gulp.dest(`${DEST}/assets/js`))
     .pipe(connect.reload());
 });
 
@@ -263,5 +271,26 @@ gulp.task("watch", () => {
 /**
  * General tasks
  */
-gulp.task("dev", gulp.series("clean-dest", "html", "styles", "scripts", "fonts", "images", "sprites", gulp.parallel("connect", "watch")));
-gulp.task("build", gulp.series("clean-dest", "html", "styles", "scripts", "fonts", "images", "sprites", "favicon"));
+gulp.task("dev", gulp.series(
+  "clean-dest",
+  "html",
+  "styles",
+  "vendor",
+  "scripts",
+  "fonts",
+  "images",
+  "sprites",
+  gulp.parallel("connect", "watch")
+));
+
+gulp.task("build", gulp.series(
+  "clean-dest",
+  "html",
+  "styles",
+  "vendor",
+  "scripts",
+  "fonts",
+  "images",
+  "sprites",
+  "favicon"
+));

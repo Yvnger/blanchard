@@ -55,6 +55,8 @@
   },
   "dependencies": {
     "core-js": "^3.33.2",
-    "regenerator-runtime": "^0.14.0"
+    "nice-select2": "^2.1.0",
+    "regenerator-runtime": "^0.14.0",
+    "swiper": "^11.0.7"
   }
 }
