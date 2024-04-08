@@ -1,0 +1,113 @@
+.select {
+    position: relative;
+
+    &--focused,
+    &:focus,
+    &:focus-visible {
+        outline: 0;
+    }
+
+    &--opened>&__inner>&__list>&__item {
+        &::after {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__inner {
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    &__inner>&__list>&__item {
+        &::after {
+            content: '';
+            display: block;
+            flex-shrink: 0;
+            width: 12px;
+            height: 12px;
+            mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik02IDcuMjkzTDEuMzU0IDIuNjQ2bC0uNzA4LjcwOEw2IDguNzA3bDUuMzU0LTUuMzUzLS43MDctLjcwOEw2IDcuMjkzeiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');
+            mask-repeat: no-repeat;
+            mask-size: cover;
+            background-color: #fff;
+            transition: transform var(--transition-duration) var(--transition-function);
+        }
+    }
+
+    &--focused>&__inner &__list--single {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    &__input {
+        display: none;
+    }
+
+    &__list {
+        &--single,
+        &--dropdown {
+            position: relative;
+            border: 1px solid #fff;
+            border-radius: 6px;
+            background-color: transparent;
+            transition-property: background-color, transform;
+            transition-duration: var(--transition-duration);
+            transition-timing-function: var(--transition-function);
+            overflow: hidden;
+        }
+
+        &--single {
+            z-index: 10;
+        }
+
+        &--dropdown {
+            position: absolute;
+            top: calc(100% - 1px);
+            right: 0;
+            left: 0;
+            border-color: #999;
+            transform: scaleY(0);
+            transform-origin: 0 0;
+            opacity: 0;
+            pointer-events: none;
+            transition-property: opacity, transform;
+            transition-duration: var(--transition-duration);
+            transition-timing-function: var(--transition-function);
+
+            @media (max-width: ($laptop - 1px)) {
+                background-color: #000;
+            }
+
+            &:focus,
+            &:hover {
+                background-color: unset;
+            }
+        }
+
+        &--active {
+            transform: scaleY(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4px 14px 4px 15px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 32px;
+        color: #fff;
+        transition: background-color var(--transition-duration) var(--transition-function);
+
+        &--highlighted,
+        &:focus,
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        &--selected {
+            display: none;
+        }
+    }
+}
