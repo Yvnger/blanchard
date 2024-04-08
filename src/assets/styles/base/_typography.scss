@@ -1,4 +1,6 @@
-// @include font-face("Open Sans", "fonts/OpenSans", 400, normal);
+@include font-face("Open Sans", "fonts/OpenSans-Regular", 400, normal);
+@include font-face("Open Sans", "fonts/OpenSans-SemiBold", 600, normal);
+@include font-face("Open Sans", "fonts/OpenSans-Bold", 700, normal);
 
 html {
   font-family: #{$primary-font};
