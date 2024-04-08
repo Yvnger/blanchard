@@ -3,4 +3,12 @@
   padding: 0 var(--container-padding);
   max-width: var(--container-width);
   width: 100%;
+
+  @media (max-width: $laptop) {
+    padding: 0 50px;
+  }
+
+  @media (max-width: $mobile) {
+    padding: 0 var(--container-padding);
+  }
 }
