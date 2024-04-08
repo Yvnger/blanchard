@@ -37,3 +37,10 @@
   @include resetStyles;
   list-style-type: none;
 }
+
+@mixin retina {
+  @media (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi) {
+    @content
+  }
+}
