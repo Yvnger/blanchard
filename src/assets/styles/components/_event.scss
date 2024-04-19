@@ -77,7 +77,6 @@
     }
 
     &__showmore {
-        text-decoration: underline;
         color: #9d5cd0;
 
         &:focus-visible {
@@ -91,7 +90,6 @@
         }
 
         &:active {
-            text-decoration: underline;
             color: #333;
         }
 
