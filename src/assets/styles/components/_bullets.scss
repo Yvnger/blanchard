@@ -1,0 +1,23 @@
+.bullet {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding-top: 30px;
+
+    @media (max-width: $mobile) {
+        padding-top: 20px;
+    }
+
+    &__item {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #cacaca;
+        transition: background-color var(--transition-duration) var(--transition-function);
+
+        &--active {
+            background-color: #666;
+        }
+    }
+}

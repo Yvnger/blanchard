@@ -50,22 +50,26 @@ const events = new Swiper('.events__slider', {
         prevEl: '.events__slider-button--prev',
     },
     pagination: {
-        el: '.gallery__slider-fraction',
-        type: 'fraction',
+        el: '.events__slider-bullets',
+        type: 'bullets',
+        bulletActiveClass: 'bullet__item--active',
+        bulletClass: 'bullet__item',
     },
     breakpoints: {
         320: {
             slidesPerView: 1,
-            spaceBetween: 0
+            slidesPerGroup: 1,
+            spaceBetween: 23
         },
         768: {
             slidesPerView: 2,
-            spaceBetween: 38
+            slidesPerGroup: 2,
+            spaceBetween: 34
         },
         // when window width is >= 480px
         1024: {
-            slidesPerView: 2,
-            spaceBetween: 34
+            slidesPerView: 3,
+            spaceBetween: 27
         },
         // when window width is >= 640px
         1280: {
