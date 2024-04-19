@@ -2,12 +2,11 @@
   <article class="event__card">
     <div class="event__image-wrap">
       <picture>
-        <source srcset="assets/images/events/event-{{id}}-desktop.webp" />
-        <img
-          class="event__image"
-          src="assets/images/events/event-{{id}}-desktop.jpg"
-          alt="{{title}}"
-        />
+        <source srcset="assets/images/events/event-{{id}}-mobile.webp" media="(max-width: 767px)">
+        <source srcset="assets/images/events/event-{{id}}-tablet.webp" media="(max-width: 1023px)">
+        <source srcset="assets/images/events/event-{{id}}-laptop.webp" media="(max-width: 1279px)">
+        <source srcset="assets/images/events/event-{{id}}-desktop.webp" media="(min-width: 1280px)">
+        <img class="event__image" src="assets/images/events/event-{{id}}-desktop.jpg" alt="{{title}}" />
       </picture>
     </div>
 
