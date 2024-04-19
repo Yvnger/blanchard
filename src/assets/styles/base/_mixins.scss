@@ -44,3 +44,16 @@
     @content
   }
 }
+
+@mixin transition($properties...) {
+  $transition-duration: var(--transition-duration);
+  $transition-function: var(--transition-function);
+
+  @if length($properties) == 1 {
+    transition: $properties $transition-duration $transition-function;
+  } @else {
+    transition-property: $properties;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-function;
+  }
+}
