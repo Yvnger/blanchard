@@ -6,3 +6,24 @@ html {
   font-family: #{$primary-font};
   font-size: 16px;
 }
+
+a {
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+  color: #9d5cd0;
+  @include transition(border-color, background-color, color);
+
+  &:focus-visible {
+    background-color: #9d5cd0;
+    border-color: #9d5cd0;
+    color: #fff;
+  }
+
+  &:hover {
+    border-color: currentColor;
+  }
+
+  &:active {
+    color: #7943a4;
+  }
+}
