@@ -1,29 +1,49 @@
+// Import base styles
 @import "base/variables";
 @import "vendor/normalize";
 @import "base/base";
 @import "base/mixins";
 @import "base/typography";
 
-// Import component styles
+// Import common component styles
+@import "components/buttons";
+
+// Import common layout styles
+@import "layout/grid";
+@import "layout/section";
+
+// Header styles
+@import "layout/header";
 @import "components/nav";
 @import "components/search";
-@import "components/buttons";
-@import "components/checkbox";
+
+// Hero styles
+@import "layout/hero";
+
+// About styles
+@import "layout/about";
+
+// Gallery styles
+@import "layout/gallery";
 @import "components/select";
+@import "components/checkbox";
+
+// Catalog styles
+@import "layout/catalog";
 @import "components/artist";
 @import "components/category";
 @import "components/accordeon";
+
+// Events styles
+@import "layout/events";
 @import "components/event";
 
-// Import layout styles
-@import "layout/grid";
-@import "layout/section";
-@import "layout/header";
-@import "layout/footer";
-@import "layout/hero";
-@import "layout/about";
-@import "layout/gallery";
-@import "layout/catalog";
-@import "layout/events";
+// Projects & partners styles
 @import "layout/projects";
+@import "components/partner";
+
+// Contacts styles
 @import "layout/contacts";
+
+// Footer styles
+@import "layout/footer";
