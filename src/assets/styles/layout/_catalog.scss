@@ -5,13 +5,27 @@
 
     &__wrap {
         display: grid;
-        grid-template-columns: max(750px) 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 'artist categories';
         gap: 50px;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: auto;
+            grid-template-areas: 'categories' 'artist';
+        }
     }
 
     &__categories {
         display: flex;
         flex-direction: column;
         padding-top: 1px;
+    }
+
+    &__artist-box {
+        grid-area: artist;
+    }
+
+    &__categories {
+        grid-area: categories;
     }
 }
