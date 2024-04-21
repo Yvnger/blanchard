@@ -79,7 +79,7 @@ const events = new Swiper('.events__slider', {
     }
 });
 
-const slider = new Swiper('.projects__slider', {
+const projects = new Swiper('.projects__slider', {
     slidesPerView: 3,
     slidesPerGroup: 3,
     spaceBetween: 50,
