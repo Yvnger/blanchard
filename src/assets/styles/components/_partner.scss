@@ -1,0 +1,69 @@
+.partner {
+    position: relative;
+    cursor: grab;
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    &__wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #cacaca;
+        max-width: 450px;
+        max-height: 150px;
+        min-height: 150px;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        @include transition(border-color);
+
+        @media (max-width: $laptop) {
+            max-width: 384px;
+            min-height: 128px;
+            max-height: 128px;
+        }
+
+        @media (max-width: $tablet) {
+            max-width: 264px;
+            min-height: 106px;
+            max-height: 106px;
+        }
+
+        @media (max-width: $mobile) {
+            max-width: 100%;
+            min-height: 65px;
+            max-height: 65px;
+        }
+    }
+
+    &__logo {
+        display: block;
+        width: 100%;
+        filter: grayscale(1);
+        opacity: .3;
+        user-select: none;
+        @include transition(filter, opacity);
+    }
+
+    &__wrap:focus-visible {
+        background-color: none;
+        outline: 0;
+        border-color: #9d5cd0;
+    }
+
+    &__wrap:hover &__logo {
+        filter: grayscale(0);
+        opacity: 1;
+    }
+
+    &__wrap:active {
+        border-color: #9d5cd0;
+    }
+
+    &__wrap:active &__logo {
+        filter: grayscale(0);
+        opacity: 1;
+    }
+}

@@ -1,3 +1,86 @@
 .projects {
-    
+    &__text {
+        margin-bottom: 30px;
+    }
+
+    &__partners {
+        &-title {
+            margin: 0;
+            margin-bottom: 23px;
+        }
+    }
+
+    &__slider {
+        overflow: hidden;
+
+        &-wrap {
+            position: relative;
+            padding: 0 75px;
+
+            @media (max-width: $laptop) {
+                padding: 0 53px;
+            }
+        }
+
+        &-controls {
+            position: absolute;
+            top: calc(50% - 15px);
+            right: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            outline: 2px solid transparent;
+            outline-offset: -2px;
+            background-color: #ececec;
+            transition-property: background-color, outline-color, opacity;
+            transition-duration: var(--transition-duration);
+            transition-timing-function: var(--transition-function);
+
+            &:focus-visible {
+                outline-color: #9d5cd0;
+            }
+
+            &:hover {
+                background-color: #d1a9f0;
+            }
+
+            &:active {
+                outline-color: #9d5cd0;
+                background-color: #d1a9f0;
+            }
+
+            &:disabled {
+                opacity: .5;
+                pointer-events: none;
+            }
+
+            &::before {
+                content: '';
+                display: block;
+                width: 11px;
+                height: 11px;
+                background-color: #000;
+                mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEzIDIwbDUtNS01LTUiIHN0cm9rZT0iI2ZmZiIvPjwvc3ZnPg==');
+                mask-repeat: no-repeat;
+                mask-position: center;
+            }
+
+            &--prev {
+                transform: rotate(180deg);
+            }
+        }
+    }
 }
+
+@import "../components/partner";
