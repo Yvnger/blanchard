@@ -38,9 +38,28 @@
   list-style-type: none;
 }
 
+// Media queries
 @mixin retina {
   @media (-webkit-min-device-pixel-ratio: 2),
   (min-resolution: 192dpi) {
+    @content
+  }
+}
+
+@mixin laptop {
+  @media (max-width: $laptop) {
+    @content
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet) {
+    @content
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $mobile) {
     @content
   }
 }
