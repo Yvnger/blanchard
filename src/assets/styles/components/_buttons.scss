@@ -5,9 +5,7 @@
   font-weight: 700;
   font-size: 18px;
   white-space: nowrap;
-  transition-property: background-color, color, opacity, outline-color, outline-width, outline-offset;
-  transition-duration: var(--transition-duration);
-  transition-timing-function: var(--transition-function);
+  @include transition(border-color, outline-color, outline-width, outline-offset, background-color, color, opacity);
 
   &:disabled {
     opacity: .4;
