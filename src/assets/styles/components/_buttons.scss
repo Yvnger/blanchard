@@ -41,6 +41,32 @@
     }
   }
 
+  &--outline {
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+    border: 2px solid #9d5cd0;
+    padding: 11px 35px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #9d5cd0;
+
+    // Base states
+    &:focus-visible {
+      outline: 2px solid #c283f3;
+      outline-offset: 3px;
+    }
+
+    &:hover {
+      background-color: #9d5cd0;
+      color: #fff;
+    }
+
+    &:active {
+      border-color: #d1a9f0;
+      background-color: #7943a4;
+    }
+  }
+
   &__chevron {
     display: flex;
     align-items: center;
