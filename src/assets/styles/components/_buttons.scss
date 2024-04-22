@@ -1,11 +1,9 @@
 .button {
-  display: block;
   padding: 17px 35px;
   border-radius: 100px;
   outline-offset: -3px;
   font-weight: 700;
   font-size: 18px;
-  line-height: auto;
   white-space: nowrap;
   transition-property: background-color, color, opacity, outline-color, outline-width, outline-offset;
   transition-duration: var(--transition-duration);
